@@ -28,3 +28,25 @@ wmic qfe
 // logical disk 
 wmic logicaldisk 
 ```
+
+## User Enumeration 
+
+```
+// Current username in the system and we can verify that we are an system level user or not 
+whoami
+
+// we can see the privileges provided for the current user
+whoami /priv 
+
+// we can check the group which the current user found and can confirm their presence in any sort of the administrative groups 
+whoami /groups
+
+// To list the user in the machines
+net user 
+
+// we can see some informations about other users like last password changed, active account 
+net user user_name
+net user administrator (for admin informations)
+
+
+```
