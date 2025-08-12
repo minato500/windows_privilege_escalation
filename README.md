@@ -3,7 +3,7 @@
 ## Content 
 
 - [Gaining a foothold](topics/foothold.md)
-- Initial Enumeration
+- [Initial Enumeration](topics/enumeration.md)
 - Exploring Automated Tools 
 - Kernel Exploits 
 - Password and Port Forwarding
