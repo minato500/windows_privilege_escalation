@@ -47,6 +47,30 @@ net user
 // we can see some informations about other users like last password changed, active account 
 net user user_name
 net user administrator (for admin informations)
+```
 
+## Network Enumeration
 
 ```
+// To get the ip address of the machine and additional information about DNS server, etc
+ipconfig
+
+// To get the arp table 
+arp -a 
+
+// To get route table 
+route print 
+```
+
+## Password Hunting 
+
+In the password hunting first we going to search for the password in local system (stored file) or file. First step is somebody will store or make their wifi password same as the work credentials to make easier to remember, this password could be stored in registry 
+
+```
+// To search for the password in a word 
+findstr /si password *.txt *.init
+```
+
+## AV Enumeration
+
+We want to look at the configurations of firewall and Anit-viruses. 
