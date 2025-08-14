@@ -73,4 +73,21 @@ findstr /si password *.txt *.init
 
 ## AV Enumeration
 
-We want to look at the configurations of firewall and Anit-viruses. 
+We want to look at the configurations of firewall and Anti-viruses. We look the informations using service query 
+
+```
+// showing windows defender configurations
+sc query windefend
+
+// to find all the service running on the machine (used to find other anti-viruses)
+sc queryex type= service 
+
+// to see the firewall configurations
+netsh advfirewall firewall dump
+
+// if above command not worked (this is for the older versions)
+netsh firewall show state 
+
+// to see open ports and configuration in firewall
+netsh firewall show config
+```

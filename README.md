@@ -4,7 +4,7 @@
 
 - [Gaining a foothold](topics/foothold.md)
 - [Initial Enumeration](topics/enumeration.md)
-- Exploring Automated Tools 
+- [Exploring Automated Tools](topics/automated_tool.md) 
 - Kernel Exploits 
 - Password and Port Forwarding
 - Windows Subsystem for Linux
