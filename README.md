@@ -5,7 +5,7 @@
 - [Gaining a foothold](topics/foothold.md)
 - [Initial Enumeration](topics/enumeration.md)
 - [Exploring Automated Tools](topics/automated_tool.md) 
-- Kernel Exploits 
+- [Kernel Exploits](topics/kernel_exploits.md) 
 - Password and Port Forwarding
 - Windows Subsystem for Linux
 - Impersonation and Potato Attacks
