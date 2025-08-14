@@ -22,7 +22,7 @@ These are the file we can upload and compile it in the machine.
 - [windows-exploit-suggester.py](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) (local)
 - Exploit Suggester (Metasploit)
 
-> **Note**
+> [!NOTE]
 > Do Powershell execution bypass to run all the powershell scripts by 
 > `powershell -ep bypass` 
 
