@@ -6,7 +6,7 @@
 - [Initial Enumeration](topics/enumeration.md)
 - [Exploring Automated Tools](topics/automated_tool.md) 
 - [Kernel Exploits](topics/kernel_exploits.md) 
-- Password and Port Forwarding
+- [Password and Port Forwarding](topics/password_and_port.md)
 - Windows Subsystem for Linux
 - Impersonation and Potato Attacks
 - Getsystem
