@@ -24,3 +24,15 @@ Temporary keys that allow you access to a system/network without having to provi
 ![image](images/ti6.png)
 
 ![image](images/ti7.png)
+
+To get to know about the impersonation privileges we can use 
+
+![image](/images/ti8.png)
+
+![image](images/ti9.png)
+
+here the ImpersonatePrivilege is enabled which could able to escalate to high privileged users 
+
+Resources for [Impersonation Privileges](https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/windows-privilege-escalation/#eop-impersonation-privileges)
+
+if SeAssignPrimaryToken is enabled it could vulnerable to the potato attacks 
