@@ -27,7 +27,7 @@ Temporary keys that allow you access to a system/network without having to provi
 
 To get to know about the impersonation privileges we can use 
 
-![image](/images/ti8.png)
+![image](images/ti8.png)
 
 ![image](images/ti9.png)
 
