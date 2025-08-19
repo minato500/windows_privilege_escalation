@@ -8,7 +8,7 @@
 - [Kernel Exploits](topics/kernel_exploits.md) 
 - [Password and Port Forwarding](topics/password_and_port.md)
 - [Windows Subsystem for Linux](topics/wsl.md)
-- Impersonation and Potato Attacks
+- [Token Impersonation and Potato Attacks](topics/token_impersonation.md)
 - Getsystem
 - RunAs
 - Registry 
