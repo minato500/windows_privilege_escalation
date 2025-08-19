@@ -36,3 +36,17 @@ here the ImpersonatePrivilege is enabled which could able to escalate to high pr
 Resources for [Impersonation Privileges](https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/windows-privilege-escalation/#eop-impersonation-privileges)
 
 if SeAssignPrimaryToken is enabled it could vulnerable to the potato attacks 
+
+## Potato Attack 
+
+Resources for [Potato Attack](https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/)
+
+The idea behind this vulnerability is simple to describe at a high level:
+
+- Trick the “NT AUTHORITY\SYSTEM” account into authenticating via NTLM to a TCP endpoint we control.
+
+- Man-in-the-middle this authentication attempt (NTLM relay) to locally negotiate a security token for the “NT AUTHORITY\SYSTEM” account. This is done through a series of Windows API calls.
+
+- Impersonate the token we have just negotiated. This can only be done if the attackers current account has the privilege to impersonate security tokens. This is usually true of most service accounts and not true of most user-level accounts.
+
+So if we have service account running with the privileges to impersonate security token it is vulnerable to [juice-potato attack](https://github.com/ohpe/juicy-potato)
