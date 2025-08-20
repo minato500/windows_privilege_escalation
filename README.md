@@ -10,7 +10,7 @@
 - [Windows Subsystem for Linux](topics/wsl.md)
 - [Token Impersonation and Potato Attacks](topics/token_impersonation.md)
 - [Getsystem](topics/getsystem.md)
-- RunAs
+- [RunAs](topics/runas.md)
 - Registry 
 - Executable Files
 - Startup Applications 
