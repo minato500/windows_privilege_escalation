@@ -9,7 +9,7 @@
 - [Password and Port Forwarding](topics/password_and_port.md)
 - [Windows Subsystem for Linux](topics/wsl.md)
 - [Token Impersonation and Potato Attacks](topics/token_impersonation.md)
-- Getsystem
+- [Getsystem](topics/getsystem.md)
 - RunAs
 - Registry 
 - Executable Files
