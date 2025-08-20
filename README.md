@@ -11,7 +11,7 @@
 - [Token Impersonation and Potato Attacks](topics/token_impersonation.md)
 - [Getsystem](topics/getsystem.md)
 - [RunAs](topics/runas.md)
-- Registry 
+- [Registry](topics/registry.md) 
 - Executable Files
 - Startup Applications 
 - DLL Hijacking
