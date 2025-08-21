@@ -14,7 +14,7 @@
 - [Registry](topics/registry.md) 
 - [Executable Files](topics/executable.md)
 - [Startup Applications](topics/startup.md)
-- DLL Hijacking
+- [DLL Hijacking](topics/dll_hijacking.md)
 - Service Permissions
 - CVE-2019-1388
 
