@@ -13,7 +13,7 @@
 - [RunAs](topics/runas.md)
 - [Registry](topics/registry.md) 
 - [Executable Files](topics/executable.md)
-- Startup Applications 
+- [Startup Applications](topics/startup.md)
 - DLL Hijacking
 - Service Permissions
 - CVE-2019-1388
