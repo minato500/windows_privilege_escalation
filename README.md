@@ -12,7 +12,7 @@
 - [Getsystem](topics/getsystem.md)
 - [RunAs](topics/runas.md)
 - [Registry](topics/registry.md) 
-- Executable Files
+- [Executable Files](topics/executable.md)
 - Startup Applications 
 - DLL Hijacking
 - Service Permissions
