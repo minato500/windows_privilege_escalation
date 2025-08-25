@@ -1,5 +1,6 @@
 # Windows Privilege Escalation
 
+
 ## Content 
 
 - [Gaining a foothold](topics/foothold.md)
