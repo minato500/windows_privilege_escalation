@@ -16,7 +16,7 @@
 - [Startup Applications](topics/startup.md)
 - [DLL Hijacking](topics/dll_hijacking.md)
 - [Service Permissions](topics/service_permissions.md)
-- CVE-2019-1388
+- [CVE-2019-1388](topics/cve-2019-1388.md)
 
 ## Resources
 
